@@ -1,0 +1,10 @@
+{
+  "name": "my-slot - Smart Parking & EV Charging",
+  "description": "Real-time car parking and EV charging slot reservation system with GPS locator, Stripe payment processing, SQL persistence, email notifications, and dual user/admin interfaces with role-based access control.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

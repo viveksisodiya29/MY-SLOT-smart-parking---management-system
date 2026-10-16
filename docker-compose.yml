@@ -1,0 +1,30 @@
+services:
+  my-slot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-slot-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - PYTHON_PORT=5001
+      - DATABASE_PATH=/app/data/MY-SLOT.db
+      - JWT_SECRET=${JWT_SECRET:?Set JWT_SECRET in .env before starting MY-SLOT}
+      - ADMIN_SECRET_KEY=${ADMIN_SECRET_KEY:?Set ADMIN_SECRET_KEY in .env before starting MY-SLOT}
+      - CORS_ORIGIN=${CORS_ORIGIN:-*}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-}
+      - SMTP_HOST=${SMTP_HOST:-}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
+      - SMTP_FROM=${SMTP_FROM:-bookings@my-slot.app}
+      - SMTP_USE_TLS=${SMTP_USE_TLS:-true}
+    volumes:
+      - my-slot-data:/app/data
+
+volumes:
+  my-slot-data:
+    driver: local

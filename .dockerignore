@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.github
+.vscode
+*.db
+backend/MY-SLOT.db
+backend/__pycache__
+data
+*.log
+.env
+tmp_patch_note.txt

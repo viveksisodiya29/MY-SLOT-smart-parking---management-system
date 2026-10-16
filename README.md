@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-Open <http://localhost:3000> in your browser. The database initializes automatically at `backend/MY-SLOT.db` on first launch.
+Open <http://localhost:3300> in your browser. The database initializes automatically at `backend/MY-SLOT.db` on first launch.
 
 The Express server loads settings from `.env` and starts the Python API, which stores users, garages, spots, and bookings in SQLite. If you create `.env` from `.env.example`, keep `NODE_ENV=development` for local use. Use the same running server URL in every browser and sign in with the same account; each browser stores only its own login token.
 

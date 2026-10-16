@@ -95,6 +95,21 @@ app.use('/api', async (req, res) => {
         res.setHeader('content-type', contentType);
       }
 
+      for (const header of [
+        'access-control-allow-origin',
+        'access-control-allow-methods',
+        'access-control-allow-headers',
+        'access-control-allow-credentials',
+        'access-control-expose-headers',
+        'access-control-max-age',
+        'vary',
+      ]) {
+        const value = response.headers.get(header);
+        if (value) {
+          res.setHeader(header, value);
+        }
+      }
+
       const data = await response.text();
       return res.send(data);
     } catch (err: any) {
